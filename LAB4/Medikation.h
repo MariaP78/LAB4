@@ -25,6 +25,7 @@ public:
 	void set_Konzentration(int konzentration);
 	void set_Menge(int menge);
 	void set_Preis(float preis);
+	void zeigen(); //print
 
 };
 
