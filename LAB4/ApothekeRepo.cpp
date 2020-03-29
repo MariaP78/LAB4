@@ -104,7 +104,7 @@ void ApothekeRepo::undo() //nu face redo ul poate va prindeti voi cum ar trebui 
 		istoric_redo.push_back(med);
 		med = istoric_undo.at(istoric_undo.size() - 1);
 		istoric_undo.erase(istoric_undo.begin() + istoric_undo.size() - 1);
-		
+		//cout << "undo"<<" "<<endl;
 	}
 	else
 		cout << " Nu este posibil! " << endl;
@@ -114,9 +114,10 @@ void ApothekeRepo::redo() //nu face redo ul poate va prindeti voi cum ar trebui 
 {
  if (istoric_redo.size() != 0)
 	{
-		istoric_undo.push_back(med);
+	    istoric_undo.push_back(med);
 		med = istoric_redo.at(istoric_redo.size() - 1);
 		istoric_redo.erase(istoric_redo.begin() + istoric_redo.size() - 1);
+		//cout << "redo" <<" "<<endl;
 	}
 	else
 		cout << " Nu este posibil! " << endl;

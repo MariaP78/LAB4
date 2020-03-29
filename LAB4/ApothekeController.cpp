@@ -85,9 +85,11 @@ void ApothekeController::meniu(int i, ApothekeRepo *repo, Medikation m)
 
 	case 7:
 		repo->undo();
+		break;
 
 	case 8:
 		repo->redo();
+		break;
 
 	default:
 		cout << "Bitte wahlen Sie eine Andere Option!\n";
