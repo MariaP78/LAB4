@@ -13,6 +13,6 @@ public:
 	ApothekeRepo();
 	void hinzufugen(Medikation m);
 	void loschen(string n, int k);
-	void bearbeiten(Medikation m);
+	void bearbeiten(string n, int k);
 };
 

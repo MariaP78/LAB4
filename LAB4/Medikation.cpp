@@ -2,8 +2,7 @@
 #include "Medikation.h"
 using namespace std;
 
-
-Medikation::Medikation()
+/*Medikation::Medikation()
 {
 	//default konstruktor
 
@@ -12,7 +11,7 @@ Medikation::Medikation()
 	Menge = 0;
 	Preis = 0;
 
-}
+}*/
 
 Medikation::Medikation(string name, int konzentration, int menge, float preis)
 {

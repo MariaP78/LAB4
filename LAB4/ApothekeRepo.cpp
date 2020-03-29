@@ -18,7 +18,7 @@ void ApothekeRepo::hinzufugen(Medikation m)
 		if (med[i] == m.get_Name && med[i] == m.get_Konzentration) //unice dupa nume si concentratie
 		{
 			gasit = true;
-			m.get_Menge++;
+			m.get_Menge= m.get_Menge+1;
 		}
 
 	if (gasit == false)
@@ -40,12 +40,12 @@ void ApothekeRepo::loschen(string n, int k)
 		}
 }
 
-void ApothekeRepo::bearbeiten(Medikation m)
+void ApothekeRepo::bearbeiten(string n, int k)
 {
 	//bearbeitet den Preis
 
 	for (int i = 0; i < med.size(); i++)
-		if (med[i]== m.get_Name && med[i] == m.get_Konzentration)
+		if (med[i].get_Name == n && med[i].get_Konzentration == k)
 		{
 			m.get_Preis = m.get_Preis - 20 / 100 * m.get_Preis; //scad pretul cu 20%
 		}
