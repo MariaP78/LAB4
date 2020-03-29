@@ -1,8 +1,9 @@
 #include "ApothekeController.h"
 
 
-ApothekeController::ApothekeController() {
 
+ApothekeController::ApothekeController() {
+	
 }
 
 
@@ -62,12 +63,12 @@ void ApothekeController::sortieren_nach_Preis(Medikation m)
 
 }
 
-void ApothekeController::meniu(int i,Medikation m)
+void ApothekeController::meniu(int i, ApothekeRepo *repo, Medikation m)
 {
 	string n;
 	int k, me,x;
 	float p;
-
+	Medikation* medi;
 	switch (i) {
 	case 0:
 		cout << "Exit";
@@ -78,13 +79,16 @@ void ApothekeController::meniu(int i,Medikation m)
 		cout << "Name: ";
 		cin >> n;
 		cout << "Konzentration: ";
-		cin >> k
+		cin >> k;
 		cout << "Menge: "; 
 		cin >> me;
 		cout << "Preis: ";
 		cin >> p;
-		medi = Medikation(n, k, me, p);
-		ApothekeRepo::hinzufugen(medi);
+		medi = new Medikation(n, k, me, p);
+		if(!(repo->existieren(*medi)))
+			repo->ApothekeRepo::hinzufugen(*medi);
+		else
+
 		break;
 
 	case 2:
@@ -93,7 +97,7 @@ void ApothekeController::meniu(int i,Medikation m)
 		cin >> n;
 		cout << "Konzentration: ";
 		cin >> k;
-		ApothekeRepo::loschen(n, k);
+		repo->ApothekeRepo::loschen(n, k);
 		break;
 
 	case 3:
@@ -102,7 +106,7 @@ void ApothekeController::meniu(int i,Medikation m)
 		cin >> n;
 		cout << "Konzentration: ";
 		cin >> k;
-		ApothekeRepo::bearbeiten(n, k);
+		repo->ApothekeRepo::bearbeiten(n, k);
 		break;
 
 	case 4:

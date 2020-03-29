@@ -14,5 +14,6 @@ public:
 	void hinzufugen(Medikation m);
 	void loschen(string n, int k);
 	void bearbeiten(string n, int k);
+	bool existieren(Medikation m);
 };
 

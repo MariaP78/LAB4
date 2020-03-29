@@ -14,7 +14,7 @@ private:
 	float Preis;
 
 public:
-	//Medikation();
+	Medikation();
 	Medikation(string name, int konzentration, int menge, float preis);
 
 	string get_Name();

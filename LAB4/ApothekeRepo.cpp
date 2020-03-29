@@ -43,6 +43,7 @@ void ApothekeRepo::loschen(string n, int k)
 void ApothekeRepo::bearbeiten(string n, int k)
 {
 	//bearbeitet den Preis
+	Medikation m;
 
 	for (int i = 0; i < med.size(); i++)
 		if (med[i].get_Name == n && med[i].get_Konzentration == k)
@@ -51,4 +52,12 @@ void ApothekeRepo::bearbeiten(string n, int k)
 		}
 }
 
+bool ApothekeRepo::existieren(Medikation m) {
+
+	for (int i = 0; i < med.size(); i++)
+		if (med[i].get_Name() == m.get_Name() && med[i].get_Konzentration() == m.get_Konzentration())
+			return true;
+
+	return false;
+}
 

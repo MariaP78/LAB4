@@ -14,6 +14,7 @@ void UI::Menu()
 {
 	//aici se face meniul din consola
 	ApothekeController ctrl;
+	ApothekeRepo med;
 	Medikation m;
 
 	int option;
@@ -29,7 +30,7 @@ void UI::Menu()
 		cout << "7. Zeigen" << endl;
 		cout << "Wahlen Sie bitte eine Option: "; cin >> option; cout << endl;
 
-		ctrl.meniu(option,m);
+		ctrl.meniu(option,&med,m);
 
 	} while (option != 0);
 }
