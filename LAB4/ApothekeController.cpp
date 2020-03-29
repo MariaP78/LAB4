@@ -1,66 +1,9 @@
 #include "ApothekeController.h"
-
+using namespace std;
 
 
 ApothekeController::ApothekeController() {
 	
-}
-
-
-void ApothekeController::sortieren_nach_Name()
-{
-	auto relation = [](Medikation a, Medikation b) { return a.get_Name() < b.get_Name(); };
-		sort(med.begin(), med.end(), relation);          
-}
-
-void ApothekeController::suchen_string(Medikation m)
-{
-	string s;
-	cin >> s;
-	sortieren_nach_Name();
-	bool ok = false;
-	for (int i = 0; i < med.size(); i++)
-	{
-		int found = -1;
-		found = m.get_Name.find(s);
-		if (found != -1)
-		{
-			ok = true;
-			m.zeigen();
-		}
-	}
-	if (ok == false)
-	{
-		for (int i = 0; i < med.size(); i++)
-			if (m.get_Menge != 0)
-				m.zeigen();
-	}
-
-}
-
-void ApothekeController::kleiner_als_menge(Medikation m,int menge)
-{
-	for (int i = 0; i < med.size(); i++)
-	{
-		if (m.get_Menge < menge)
-			m.zeigen();
-	}
-}
-
-void ApothekeController::sortieren_nach_Preis(Medikation m)
-{
-		auto relation = [](Medikation a, Medikation b) { return a.get_Preis() < b.get_Preis(); };
-		sort(med.begin(), med.end(), relation);
-
-	for (int i = 0; i < med.size(); i++)
-		m.zeigen();
-
-	//cout << "Preis: ";
-	//cin >> pr;
-	//for (int i = 0; i < med.size(); i++)
-		//if (to_string(pr) == med[i][3])
-			//cout << med[i][0] << ", " << med[i][1]; // nume+ conc
-
 }
 
 void ApothekeController::meniu(int i, ApothekeRepo *repo, Medikation m)
@@ -85,10 +28,26 @@ void ApothekeController::meniu(int i, ApothekeRepo *repo, Medikation m)
 		cout << "Preis: ";
 		cin >> p;
 		medi = new Medikation(n, k, me, p);
-		if(!(repo->existieren(*medi)))
-			repo->ApothekeRepo::hinzufugen(*medi);
-		else
+		if (repo->existieren(*medi))
+		{
+			for (int i = 0; i < repo->med.size(); i++)
+				if (repo->med.at(i).get_Name() == n && repo->med.at(i).get_Konzentration() == k) {
+					repo->med.at(i).set_Menge(me);
+					break;
+				}
 
+		}
+		else
+		{
+			repo->hinzufugen(*medi);
+			//repo->med.at(med.size()-1).zeigen();
+			int pozitie = repo->med.size() - 1;
+			repo->med.at(pozitie).zeigen();
+
+			delete medi;
+		}
+
+		
 		break;
 
 	case 2:
@@ -111,22 +70,24 @@ void ApothekeController::meniu(int i, ApothekeRepo *repo, Medikation m)
 
 	case 4:
 		cout << "Was fur ein Medikament wollen Sie?\n";//stringul
-		ApothekeController::suchen_string(m);
+		repo->suchen_string(m);
 		break;
 
 	case 5:
 		cout << "Welche soll die kleiste Menge sein?";
 		cin >> x;
-		ApothekeController::kleiner_als_menge(m, x);
+		repo->kleiner_als_menge(x);
 		break;
 
 	case 6:
-		ApothekeController::sortieren_nach_Preis(m);
+		repo->sortieren_nach_Preis();
 		break;
 
 	case 7:
-		m.zeigen();
-		break;
+		repo->undo();
+
+	case 8:
+		repo->redo();
 
 	default:
 		cout << "Bitte wahlen Sie eine Andere Option!\n";

@@ -67,6 +67,6 @@ void Medikation::set_Preis(float preis)
 
 void Medikation::zeigen()
 {
-	cout << "Name: " << Name << "Konzentration: " << Konzentration << "Menge: " << Menge << "Preis: " << Preis;
+	cout << "Name: " << Name << " Konzentration: " << Konzentration << " Menge: " << Menge << " Preis: " << Preis << endl;
 }
 

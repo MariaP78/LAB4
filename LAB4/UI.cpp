@@ -25,9 +25,10 @@ void UI::Menu()
 		cout << "2. Medikament loschen" << endl;
 		cout << "3. Medikament bearbeiten" << endl;
 		cout << "4. Medikamente zeigen" << endl;
-		cout << "5. Keiner als Menge X" << endl;
+		cout << "5. Kleiner als Menge X" << endl;
 		cout << "6. Sortieren nach Preis " << endl;
-		cout << "7. Zeigen" << endl;
+		cout << "7.UNDO" << endl;
+		cout << "8.REDO" << endl;
 		cout << "Wahlen Sie bitte eine Option: "; cin >> option; cout << endl;
 
 		ctrl.meniu(option,&med,m);
