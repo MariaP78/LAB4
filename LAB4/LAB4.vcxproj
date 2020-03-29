@@ -23,6 +23,7 @@
     <ClCompile Include="ApothekeController.cpp" />
     <ClCompile Include="ApothekeRepo.cpp" />
     <ClCompile Include="Medikation.cpp" />
+    <ClCompile Include="Test.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +31,7 @@
     <ClInclude Include="ApothekeController.h" />
     <ClInclude Include="ApothekeRepo.h" />
     <ClInclude Include="Medikation.h" />
+    <ClInclude Include="Test.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

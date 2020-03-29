@@ -5,7 +5,7 @@
 
 using namespace std;
 
-ApothekeRepo::ApothekeRepo() 
+ApothekeRepo::ApothekeRepo()
 {
 	//konstruktor
 }
@@ -41,10 +41,11 @@ void ApothekeRepo::bearbeiten(string n, int k)
 	for (int i = 0; i < med.size(); i++)
 		if (med.at(i).get_Name() == n && med.at(i).get_Konzentration() == k)
 		{
-			med.at(i).set_Preis(med.at(i).get_Preis()*2); //dubleaza pretul
+			med.at(i).set_Preis(med.at(i).get_Preis() * 2); //dubleaza pretul
 		}
 }
 
+//uberpruft ob ein Medikament existiert
 bool ApothekeRepo::existieren(Medikation m) {
 
 	for (int i = 0; i < med.size(); i++)
@@ -53,13 +54,14 @@ bool ApothekeRepo::existieren(Medikation m) {
 
 	return false;
 }
-
+//sortiert die Liste von Medikamente nach Name
 void ApothekeRepo::sortieren_nach_Name()
 {
 	auto relation = [](Medikation a, Medikation b) { return a.get_Name() < b.get_Name(); };
 	sort(med.begin(), med.end(), relation);
 }
 
+//sucht eine Zeichenkette in der Name und zeigt die Medikamente, die sie enthalten
 void ApothekeRepo::suchen_string(Medikation m)
 {
 	string s;
@@ -78,6 +80,7 @@ void ApothekeRepo::suchen_string(Medikation m)
 
 }
 
+//zeigt die Medikamente mit einer kleineren Menge als eine gegebene
 void ApothekeRepo::kleiner_als_menge(int menge)
 {
 	for (int i = 0; i < med.size(); i++)
@@ -87,6 +90,7 @@ void ApothekeRepo::kleiner_als_menge(int menge)
 	}
 }
 
+//sortiert nach Preis
 void ApothekeRepo::sortieren_nach_Preis()
 {
 	auto relation = [](Medikation a, Medikation b) { return a.get_Preis() < b.get_Preis(); };
@@ -96,8 +100,8 @@ void ApothekeRepo::sortieren_nach_Preis()
 		med.at(i).zeigen();
 
 }
-
-void ApothekeRepo::undo() //nu face redo ul poate va prindeti voi cum ar trebui scris
+//undo die letzte Operation
+void ApothekeRepo::undo()
 {
 	if (istoric_undo.size() != 0)
 	{
@@ -110,11 +114,12 @@ void ApothekeRepo::undo() //nu face redo ul poate va prindeti voi cum ar trebui 
 		cout << " Nu este posibil! " << endl;
 }
 
-void ApothekeRepo::redo() //nu face redo ul poate va prindeti voi cum ar trebui scris
+//redo die letzte Operation
+void ApothekeRepo::redo()
 {
- if (istoric_redo.size() != 0)
+	if (istoric_redo.size() != 0)
 	{
-	    istoric_undo.push_back(med);
+		istoric_undo.push_back(med);
 		med = istoric_redo.at(istoric_redo.size() - 1);
 		istoric_redo.erase(istoric_redo.begin() + istoric_redo.size() - 1);
 		//cout << "redo" <<" "<<endl;
@@ -122,7 +127,3 @@ void ApothekeRepo::redo() //nu face redo ul poate va prindeti voi cum ar trebui 
 	else
 		cout << " Nu este posibil! " << endl;
 }
-
-
-
-
