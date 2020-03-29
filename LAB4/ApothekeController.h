@@ -7,6 +7,6 @@ class ApothekeController
 {
 public:
 	ApothekeController();
-	void meniu();
+	void meniu(int i);
 };
 
