@@ -5,24 +5,43 @@
 
 using namespace std;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Default constructor. </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 ApothekeRepo::ApothekeRepo()
 {
-	//konstruktor
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Hinzufugens the given m. </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+///
+/// <param name="m">	A Medikation to process. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void ApothekeRepo::hinzufugen(Medikation m)
 {
-	//hinzufugt ein Medikament
 	istoric_undo.push_back(med); //salvez in istoric inainte sa adaug cv nou
 
 	med.push_back(m);
 	cout << med.size() << endl;
-
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Loschens. </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+///
+/// <param name="n">	A string to process. </param>
+/// <param name="k">	An int to process. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void ApothekeRepo::loschen(string n, int k)
 {
-	//loscht ein Medikament
 	istoric_undo.push_back(med); //salvez in istoric inainte sa adaug cv nou
 
 	for (int i = 0; i < med.size(); i++)
@@ -33,9 +52,17 @@ void ApothekeRepo::loschen(string n, int k)
 		}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Bearbeitens. </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+///
+/// <param name="n">	A string to process. </param>
+/// <param name="k">	An int to process. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void ApothekeRepo::bearbeiten(string n, int k)
 {
-	//bearbeitet den Preis
 	istoric_undo.push_back(med); //salvez in istoric inainte sa adaug cv nou
 
 	for (int i = 0; i < med.size(); i++)
@@ -45,23 +72,44 @@ void ApothekeRepo::bearbeiten(string n, int k)
 		}
 }
 
-//uberpruft ob ein Medikament existiert
-bool ApothekeRepo::existieren(Medikation m) {
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Existierens the given m. </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+///
+/// <param name="m">	A Medikation to process. </param>
+///
+/// <returns>	True if it succeeds, false if it fails. </returns>
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
+bool ApothekeRepo::existieren(Medikation m) {
 	for (int i = 0; i < med.size(); i++)
 		if (med.at(i).get_Name() == m.get_Name() && med.at(i).get_Konzentration() == m.get_Konzentration())
 			return true;
 
 	return false;
 }
-//sortiert die Liste von Medikamente nach Name
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Sortieren nach name. </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void ApothekeRepo::sortieren_nach_Name()
 {
 	auto relation = [](Medikation a, Medikation b) { return a.get_Name() < b.get_Name(); };
 	sort(med.begin(), med.end(), relation);
 }
 
-//sucht eine Zeichenkette in der Name und zeigt die Medikamente, die sie enthalten
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Suchen string. </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+///
+/// <param name="m">	A Medikation to process. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void ApothekeRepo::suchen_string(Medikation m)
 {
 	string s;
@@ -80,7 +128,14 @@ void ApothekeRepo::suchen_string(Medikation m)
 
 }
 
-//zeigt die Medikamente mit einer kleineren Menge als eine gegebene
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Kleiner als menge. </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+///
+/// <param name="menge">	The menge. </param>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void ApothekeRepo::kleiner_als_menge(int menge)
 {
 	for (int i = 0; i < med.size(); i++)
@@ -90,7 +145,12 @@ void ApothekeRepo::kleiner_als_menge(int menge)
 	}
 }
 
-//sortiert nach Preis
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Sortieren nach preis. </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void ApothekeRepo::sortieren_nach_Preis()
 {
 	auto relation = [](Medikation a, Medikation b) { return a.get_Preis() < b.get_Preis(); };
@@ -100,7 +160,13 @@ void ApothekeRepo::sortieren_nach_Preis()
 		med.at(i).zeigen();
 
 }
-//undo die letzte Operation
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Undoes this.  </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void ApothekeRepo::undo()
 {
 	if (istoric_undo.size() != 0)
@@ -114,7 +180,12 @@ void ApothekeRepo::undo()
 		cout << " Nu este posibil! " << endl;
 }
 
-//redo die letzte Operation
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/// <summary>	Redoes this.  </summary>
+///
+/// <remarks>	Larisa, 4/4/2020. </remarks>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void ApothekeRepo::redo()
 {
 	if (istoric_redo.size() != 0)
