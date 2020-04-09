@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Medikation.h"
+#include <exception>
+
 using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,10 +31,10 @@ Medikation::Medikation()
 
 Medikation::Medikation(string name, int konzentration, int menge, float preis)
 {
-	Name = name;
+    Name = name;
 	Konzentration = konzentration;
 	Menge = menge;
-	Preis = preis;
+    Preis = preis;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -82,7 +84,7 @@ int Medikation::get_Menge()
 /// <returns>	The preis. </returns>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-float Medikation::get_Preis()
+double Medikation::get_Preis()
 {
 	return Preis;
 }

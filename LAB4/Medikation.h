@@ -11,7 +11,7 @@ private:
 	string Name;
 	int Konzentration;
 	int Menge;
-	float Preis;
+	double Preis;
 
 public:
 	Medikation();
@@ -20,7 +20,7 @@ public:
 	string get_Name();
 	int get_Konzentration();
 	int get_Menge();
-	float get_Preis();
+	double get_Preis();
 	void set_Name(string name);
 	void set_Konzentration(int konzentration);
 	void set_Menge(int menge);
