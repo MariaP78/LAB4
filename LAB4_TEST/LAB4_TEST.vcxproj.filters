@@ -15,36 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ApothekeApp.cpp">
+    <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UI.cpp">
+    <ClCompile Include="ApothekeApp_TEST.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Medikation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ApothekeRepo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ApothekeController.cpp">
+    <ClCompile Include="Medikation_TEST.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ApothekeApp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Medikation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ApothekeRepo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ApothekeController.h">
+    <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
