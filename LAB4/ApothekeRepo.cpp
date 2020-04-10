@@ -198,3 +198,16 @@ void ApothekeRepo::redo()
 	else
 		cout << " Nu este posibil! " << endl;
 }
+
+bool ApothekeRepo::operator==(const ApothekeRepo& repo)
+{
+	if (med.size() != repo.med.size()) return false;
+
+	for (int i = 0; i < med.size(); i++)
+	{
+		if (med.at(i) != repo.med.at(i))
+			return false;
+	}
+	return true;
+
+}

@@ -151,3 +151,15 @@ void Medikation::zeigen()
 {
 	cout << "Name: " << Name << " Konzentration: " << Konzentration << " Menge: " << Menge << " Preis: " << Preis << endl;
 }
+
+bool Medikation::operator==(const Medikation& med1)
+{
+	return med1.Name == Name && med1.Konzentration == Konzentration && med1.Menge == Menge && med1.Preis == Preis;
+
+}
+
+bool Medikation::operator!=(const Medikation& med1)
+{
+	return med1.Name != Name || med1.Konzentration != Konzentration || med1.Menge != Menge || med1.Preis != Preis;
+
+}

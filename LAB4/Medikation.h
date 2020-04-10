@@ -27,5 +27,7 @@ public:
 	void set_Preis(float preis);
 	void zeigen(); //print
 
+	bool operator==(const Medikation& med1);
+	bool operator!=(const Medikation& med1);
 };
 

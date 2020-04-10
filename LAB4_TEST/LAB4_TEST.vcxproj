@@ -159,6 +159,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ApothekeApp_TEST.cpp" />
+    <ClCompile Include="ApothekeController_TEST.cpp" />
     <ClCompile Include="ApothekeRepo_TEST.cpp" />
     <ClCompile Include="Medikation_TEST.cpp" />
     <ClCompile Include="pch.cpp">

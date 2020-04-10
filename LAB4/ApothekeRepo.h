@@ -23,5 +23,7 @@ public:
 	void sortieren_nach_Preis();
 	void undo();
 	void redo();
+
+	bool operator==(const ApothekeRepo& repo);
 };
 
