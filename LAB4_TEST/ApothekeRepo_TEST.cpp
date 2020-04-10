@@ -58,5 +58,27 @@ namespace LAB4_TEST
 			test.loschen("Nurofen", 70);
 			assert(test == auxiliar);
 		}
+
+		TEST_METHOD(undoTest)
+		{
+			ApothekeRepo test;
+			ApothekeRepo auxiliar;
+			Medikation medikation = Medikation("Nurofen", 70, 200, 25.50);
+			test.hinzufugen(medikation);
+			test.undo();
+			assert(test == auxiliar);
+		}
+
+		TEST_METHOD(redoTest)
+		{
+			ApothekeRepo test;
+			ApothekeRepo auxiliar;
+			Medikation medikation = Medikation("Nurofen", 70, 200, 25.50);
+			test.hinzufugen(medikation);
+			test.undo();
+			test.redo();
+			auxiliar.hinzufugen(medikation);
+			assert(test == auxiliar);
+		}
 	};
 }

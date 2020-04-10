@@ -5,6 +5,11 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
 
+
+// namespace: LAB4_TEST
+//
+// summary:	.
+
 namespace LAB4_TEST
 {
 	/// <summary>	Copy constructor. </summary>
