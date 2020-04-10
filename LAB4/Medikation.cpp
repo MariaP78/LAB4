@@ -152,11 +152,29 @@ void Medikation::zeigen()
 	cout << "Name: " << Name << " Konzentration: " << Konzentration << " Menge: " << Menge << " Preis: " << Preis << endl;
 }
 
+
+/// <summary>	Equality operator. </summary>
+///
+/// <remarks>	Maria, 4/10/2020. </remarks>
+///
+/// <param name="med1">	The first median. </param>
+///
+/// <returns>	True if the parameters are considered equivalent. </returns>
+
 bool Medikation::operator==(const Medikation& med1)
 {
 	return med1.Name == Name && med1.Konzentration == Konzentration && med1.Menge == Menge && med1.Preis == Preis;
 
 }
+
+
+/// <summary>	Inequality operator. </summary>
+///
+/// <remarks>	Maria, 4/10/2020. </remarks>
+///
+/// <param name="med1">	The first median. </param>
+///
+/// <returns>	True if the parameters are not considered equivalent. </returns>
 
 bool Medikation::operator!=(const Medikation& med1)
 {

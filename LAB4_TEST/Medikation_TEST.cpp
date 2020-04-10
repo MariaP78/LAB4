@@ -8,10 +8,15 @@ using namespace std;
 
 namespace LAB4_TEST
 {
+	/// <summary>	Copy constructor. </summary>
+	///
+	/// <remarks>	Maria, 4/10/2020. </remarks>
+	///
+	/// <param name="parameter1">	The first parameter. </param>
+
 	TEST_CLASS(Medikation_TEST)
 	{
 	public:
-
 		TEST_METHOD(ConstructorTest)
 		{
 			auto  medikation = new Medikation("Nurofen", 70, 200, 25.50);
