@@ -28,7 +28,7 @@ void ApothekeRepo::hinzufugen(Medikation m)
 	istoric_undo.push_back(med); //salvez in istoric inainte sa adaug cv nou
 
 	med.push_back(m);
-	cout << med.size() << endl;
+	//cout << med.size() << endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -210,4 +210,9 @@ bool ApothekeRepo::operator==(const ApothekeRepo& repo)
 	}
 	return true;
 
+}
+
+vector <Medikation> ApothekeRepo::get_med()
+{
+	return med;
 }

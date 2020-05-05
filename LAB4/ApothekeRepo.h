@@ -5,10 +5,12 @@ using namespace std;
 
 class ApothekeRepo
 {
-	friend class Medikation;
+	//friend class Medikation;
+private:
+	vector <Medikation> med;
 
 public:
-	vector <Medikation> med;
+	
 	vector <vector <Medikation>> istoric_undo, istoric_redo; //istoric pt undo si pt redo
 
 
@@ -23,7 +25,10 @@ public:
 	void sortieren_nach_Preis();
 	void undo();
 	void redo();
+	
 
 	bool operator==(const ApothekeRepo& repo);
+
+	vector <Medikation> get_med();
 };
 

@@ -44,9 +44,9 @@ void ApothekeController::meniu(int i, ApothekeRepo *repo, Medikation m)
 		medi = new Medikation(n, k, me, p);
 		if (repo->existieren(*medi))
 		{
-			for (int i = 0; i < repo->med.size(); i++)
-				if (repo->med.at(i).get_Name() == n && repo->med.at(i).get_Konzentration() == k) {
-					repo->med.at(i).set_Menge(me);
+			for (int i = 0; i < repo->get_med().size(); i++)
+				if (repo->get_med().at(i).get_Name() == n && repo->get_med().at(i).get_Konzentration() == k) {
+					repo->get_med().at(i).set_Menge(me);
 					break;
 				}
 
@@ -55,8 +55,8 @@ void ApothekeController::meniu(int i, ApothekeRepo *repo, Medikation m)
 		{
 			repo->hinzufugen(*medi);
 			//repo->med.at(med.size()-1).zeigen();
-			int pozitie = repo->med.size() - 1;
-			repo->med.at(pozitie).zeigen();
+			int pozitie = repo->get_med().size() - 1;
+			repo->get_med().at(pozitie).zeigen();
 
 			delete medi;
 		}
